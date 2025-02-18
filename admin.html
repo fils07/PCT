@@ -54,7 +54,6 @@
 
 
     <script>
-        const myFlag = process.env.NEXT_PUBLIC_FLAG;
         window.onload = function() {
             function getCookie(name) {
                 const value = `; ${document.cookie}`;
@@ -72,10 +71,21 @@
             }
 
             if (getCookie('admin') === 'true') {
-                alert(myFlag);
+                fetch('https://api.jsonbin.io/v3/b/67b48e96acd3cb34a8e6d7de', {
+                    headers: {
+                        'X-Master-Key': '$2a$10$LDIkRI7XMq5ju0nO4TLCvOb0.Qpvr1rb24YVsqwwX7gENek64Pegu'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.record.flag);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    alert('Erreur lors de la récupération du flag');
+                });
             } else {
                 alert('Cette page est réservée aux administrateurs !');
-                //window.location.href = 'index.html';
             }
         }
     </script>
