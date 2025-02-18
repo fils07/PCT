@@ -52,31 +52,8 @@
         </div>
     </div>
 
-    <script>
-        window.onload = function() {
-            function getCookie(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-            }
 
-            function setCookie(name, value) {
-                document.cookie = `${name}=${value}; path=/`;
-            }
-
-            // Set default admin cookie if it doesn't exist
-            if (!getCookie('admin')) {
-                setCookie('admin', 'false');
-            }
-
-            if (getCookie('admin') === 'true') {
-                alert('PCT{C00K13_4DM1N_F0UND}');
-            } else {
-                alert('Cette page est réservée aux administrateurs !');
-                //window.location.href = 'index.html';
-            }
-        }
-    </script>
+    <script src="admin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
